@@ -1,1 +1,66 @@
-OUI
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depuis le 8 juin 2024</title>
+    <style>
+        /* Reset and modern font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+        h1 {
+            font-size: 10rem; /* Large modern text */
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
+            margin-bottom: 100px;
+        }
+        .counter {
+            font-size: 2.5rem; /* Slightly larger counter text */
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            padding: 10px 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+    </style>
+</head>
+<body>
+<h1>Non</h1>
+<p class="counter" id="days-counter">Chargement...</p>
+
+<script>
+  // Définir la date cible
+  const targetDate = new Date("2024-06-08"); // Samedi 8 juin 2024
+
+  // Fonction pour calculer et afficher le nombre de jours écoulés
+  function updateDaysCounter() {
+    const currentDate = new Date();
+    const timeDifference = currentDate - targetDate; // Différence en millisecondes
+    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Conversion en jours
+
+    if (daysDifference >= 0) {
+      document.getElementById("days-counter").textContent = `depuis ${daysDifference} jours`;
+    } else {
+      document.getElementById("days-counter").textContent = `La date n'est pas encore passée (${Math.abs(daysDifference)} jours restants)`;
+    }
+  }
+
+  // Initialiser le compteur
+  updateDaysCounter();
+</script>
+</body>
+</html>
